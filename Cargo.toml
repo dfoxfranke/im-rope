@@ -1,0 +1,30 @@
+[package]
+name = "im-rope"
+version = "0.1.0"
+authors = ["Daniel Fox Franke <dfoxfranke@gmail.com>"]
+edition = "2021"
+rust-version = "1.65"
+description = "Unicode strings backed by RRB vectors"
+repository = "https://github.com/dfoxfranke/im-rope"
+license = "Apache-2.0 WITH LLVM-exception"
+keywords = ["rope"]
+categories = ["data-structures"]
+
+[dependencies]
+im = "15.1"
+memchr = "2"
+proptest = { version = "1", optional = true }
+sealed = "0.5"
+serde = { version = "1", optional = true }
+static-cow = "0.2"
+
+[dev-dependencies]
+proptest = "1"
+proptest-derive = "0.2"
+serde = "1"
+serde_json = "1"
+
+[features]
+default = ["serde", "proptest"]
+serde = ["dep:serde", "im/serde"]
+proptest = ["dep:proptest", "im/proptest" ]
